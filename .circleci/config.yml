@@ -60,11 +60,6 @@ jobs:
             pipenv run gunicorn 'service.microservice:start_service()'
           background: true
 
-      - run:
-          name: run db migrations
-          command: |
-            pipenv run alembic upgrade head
-
       # run tests!
       # this example uses Django's built-in test-runner
       # other common Python testing frameworks include pytest and nose
@@ -73,7 +68,7 @@ jobs:
       - run:
           name: run tests
           command: |
-            pipenv run python -m pytest --cov=service --cov=tasks tests/ --cov-fail-under=90
+            pipenv run python -m pytest --cov=service --cov=tasks tests/ --cov-fail-under=100
             pipenv run coveralls
 
 
