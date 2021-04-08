@@ -56,7 +56,6 @@ def test_slack(client, mock_env_access_key):
     with patch('service.resources.slack.requests.post') as mock_slack:
         mock_slack.return_value.status_code = 100
         mock_slack.return_value.json_data = lambda: {"ok": True, "channel": "C0190TZ0TS9"}
-        #mock_slack.side_effect = Exception('http error')
         response = client.simulate_post(
             '/slack-notification',
             json=mocks.SUBMISSION_POST_DATA
@@ -67,6 +66,7 @@ def test_slack_exception(client, mock_env_access_key):
     # pylint: disable=unused-argument
     """ test on_post exceptions """
     with patch('service.resources.slack.requests.post') as mock_slack:
+        mock_slack.return_value.status_code = 400
         mock_slack.side_effect = Exception('http error')
         response = client.simulate_post(
             '/slack-notification',
