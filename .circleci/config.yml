@@ -36,6 +36,7 @@ jobs:
           - v1-dependencies-
 
       - run: sudo apt-get update
+      - run: sudo apt-get install postgresql-client
       - run: sudo apt-get install vim-tiny
       - run:
           name: install dependencies
