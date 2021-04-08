@@ -66,10 +66,9 @@ def test_slack_exception(client, mock_env_access_key):
     # pylint: disable=unused-argument
     """ test on_post exceptions """
     with patch('service.resources.slack.requests.post') as mock_slack:
-        mock_slack.return_value.status_code = 400
-        mock_slack.side_effect = Exception('http error')
+        mock_slack.return_value.json = {"ok": False, "error": "Failed"}
         response = client.simulate_post(
             '/slack-notification',
             json=mocks.SUBMISSION_POST_DATA
         )
-        assert response.status_code == 200
+        assert response.status_code == 400
