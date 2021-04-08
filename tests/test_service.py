@@ -72,4 +72,3 @@ def test_slack_exception(client, mock_env_access_key):
             json=mocks.SUBMISSION_POST_DATA
         )
         assert response.status_code == 400
-
