@@ -1,10 +1,10 @@
 """ Twilio SMS """
 import os
 import json
+import urllib.request
 import falcon
 import jsend
 import requests
-import urllib.request
 from .hooks import validate_access
 
 @falcon.before(validate_access)

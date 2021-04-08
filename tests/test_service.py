@@ -1,12 +1,12 @@
 # pylint: disable=redefined-outer-name
 """Tests for microservice"""
 import json
+from unittest.mock import patch
 import jsend
 import pytest
 from falcon import testing
 import service.microservice
 import tests.mocks as mocks
-from unittest.mock import Mock, patch
 
 
 CLIENT_HEADERS = {

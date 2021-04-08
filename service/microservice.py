@@ -1,7 +1,5 @@
 """Main application module"""
 import os
-import json
-import jsend
 import sentry_sdk
 import falcon
 from .resources.slack import SlackService
