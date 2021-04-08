@@ -8,6 +8,6 @@ SFDS slack-microservice-py was developed for CCSF to send Slack messages.
 ## Usage
 The Slack Microservice takes in a JSON object, parses through the parameters and sends a Slack messages to a DS Slack channel.
 
-Please refer to [data-sample.json] for data structure
+Please refer to [data-sample.json] (https://github.com/SFDigitalServices/slack-microservice-py/blob/main/data-sample.json) for data structure
 * For file uploads to work, you will need to add the slack microservice bot to the channel you're posting to.
 
